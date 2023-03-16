@@ -3,8 +3,7 @@ import { google } from "googleapis";
 const sheets = google.sheets("v4");
 
 // If `range` is omitted, this gets the entire sheet.
-// From https://webapps.stackexchange.com/a/107282
-export default async function sheet(auth, spreadsheetId, range = "A1:ZZ") {
+export default async function sheet(auth, spreadsheetId, range = "A:ZZ") {
   const request = { spreadsheetId, range, auth };
   let data;
   try {
