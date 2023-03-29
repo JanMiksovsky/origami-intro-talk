@@ -11,7 +11,6 @@ export default class GoogleDriveGraph {
 
   async get(key) {
     const items = await this.getItems();
-
     const item = items[key];
     if (!item) {
       return undefined;
@@ -42,12 +41,7 @@ export default class GoogleDriveGraph {
       const items = {};
       for (const file of response.data.files) {
         const { name, id, mimeType } = file;
-        const outerKey =
-          mimeType === "application/vnd.google-apps.spreadsheet"
-            ? // Add .gsheet extension to Google Sheets.
-              name + ".gsheet"
-            : name;
-        items[outerKey] = { id, mimeType, name };
+        items[name] = { id, mimeType };
       }
       return items;
     });

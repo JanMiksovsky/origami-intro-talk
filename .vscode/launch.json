@@ -10,7 +10,7 @@
       "name": "Serve",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/node_modules/@graphorigami/origami/src/cli/cli.js",
-      "args": ["serve watch src, =debug(.)"],
+      "args": ["@serve @watch src, =@debug(.)"],
       "runtimeArgs": ["--preserve-symlinks"]
     }
   ]

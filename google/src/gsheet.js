@@ -2,8 +2,7 @@ import { StringWithGraph } from "@graphorigami/origami";
 import { google } from "googleapis";
 const sheets = google.sheets("v4");
 
-// If `range` is omitted, this gets the entire sheet.
-export default async function sheet(auth, spreadsheetId, range = "A:ZZ") {
+export default async function sheet(auth, spreadsheetId, range = "Data") {
   const request = { spreadsheetId, range, auth };
   let data;
   try {
