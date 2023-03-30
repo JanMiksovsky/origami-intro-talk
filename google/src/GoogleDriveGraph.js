@@ -1,6 +1,10 @@
 import { google } from "googleapis";
 import gsheet from "./gsheet.js";
 
+const googleExtensions = {
+  "application/vnd.google-apps.spreadsheet": ".gsheet",
+};
+
 export default class GoogleDriveGraph {
   constructor(auth, folderId) {
     this.auth = auth;
@@ -40,7 +44,9 @@ export default class GoogleDriveGraph {
     this.itemsPromise = this.service.files.list(params).then((response) => {
       const items = {};
       for (const file of response.data.files) {
-        const { name, id, mimeType } = file;
+        const { id, mimeType } = file;
+        const extension = googleExtensions[mimeType] || "";
+        const name = file.name + extension;
         items[name] = { id, mimeType };
       }
       return items;

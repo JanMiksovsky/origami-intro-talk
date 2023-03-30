@@ -2,7 +2,9 @@ import { StringWithGraph } from "@graphorigami/origami";
 import { google } from "googleapis";
 const sheets = google.sheets("v4");
 
-export default async function sheet(auth, spreadsheetId, range = "Data") {
+export default async function sheet(auth, key, range = "Data") {
+  // Remove .gsheet extension if present
+  const spreadsheetId = key.replace(/\.gsheet$/, "");
   const request = { spreadsheetId, range, auth };
   let data;
   try {
