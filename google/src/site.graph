@@ -11,4 +11,4 @@ teamByName = @map/keys(teamData.yaml, =name)
 
 driveFolder = google(creds.json)/drive/1X3MWPXwwYXWarhNiCBIxCvGTyiBqISAF
 driveCache = @cache/site(driveFolder, cacheFiles)
-teamData.yaml = headerKeys(@parse/json(driveCache/Team))
+teamData.yaml = headerKeys(@parse/json(driveCache/Team.gsheet))

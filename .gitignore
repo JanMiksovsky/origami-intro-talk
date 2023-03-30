@@ -2,3 +2,4 @@ node_modules
 build
 creds.json
 cacheFiles
+.vscode
