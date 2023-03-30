@@ -1,6 +1,6 @@
 import assert from "node:assert";
 import test from "node:test";
-import graph from "./fn.js";
+import graph from "./object.js";
 
 test("can get the keys of the graph", async () => {
   assert.deepEqual(await graph.keys(), ["Alice.md", "Bob.md", "Carol.md"]);
