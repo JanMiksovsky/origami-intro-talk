@@ -1,4 +1,4 @@
-/* An Explorable graph */
+/* An explorable graph */
 const graph = {
   /* Return the value for the given key. */
   async get(key) {

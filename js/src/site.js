@@ -21,6 +21,7 @@ const personTemplate = new OrigamiTemplate(await files.get("person.ori"));
 const teamData = ExplorableGraph.fromYaml(await files.get("teamData.yaml"));
 
 const title = "Our Amazing Team";
+
 const indexHtml = indexTemplate.apply({ teamData, title });
 const thumbnails = new MapValuesGraph(images, thumbnail);
 const teamByName = new MapInnerKeysGraph(teamData, (value) =>
