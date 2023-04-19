@@ -4,9 +4,9 @@
   "type": "module",
   "dependencies": {
     "@graphorigami/origami": "0.0.25",
-    "marked": "4.3.0",
     "googleapis": "114.0.0",
-    "sharp": "0.32.0"
+    "marked": "4.3.0",
+    "sharp": "0.31.3"
   },
   "scripts": {
     "start": "ori @serve"
