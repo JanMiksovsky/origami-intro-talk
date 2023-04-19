@@ -7,5 +7,8 @@
     "marked": "4.3.0",
     "googleapis": "114.0.0",
     "sharp": "0.32.0"
+  },
+  "scripts": {
+    "start": "ori @serve"
   }
 }
