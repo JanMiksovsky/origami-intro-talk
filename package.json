@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "type": "module",
   "dependencies": {
-    "@weborigami/origami": "0.0.59",
-    "openai": "4.52.3"
+    "@weborigami/origami": "0.0.69"
   },
   "scripts": {
     "start": "ori @serve"
