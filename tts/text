@@ -1,0 +1,7 @@
+Building a website from scratch shouldn’t be that hard, because it’s usually possible to describe a site in just a few sentences.
+
+You can say things like, “The home page should list all our products” or, “The products area should have a page for each product.”
+
+So you’d think it would be easy to directly express these ideas in some programming language and get a running site.
+
+But sadly those are ideas you can’t express in the web’s HTML and CSS languages. And to get around those limitations you need to become a full programmer, or spend a bunch of money — or both.
