@@ -1,12 +1,10 @@
 {
-  "name": "@graphorigami/origami-intro-talk",
+  "name": "@weborigami/origami-intro-talk",
   "version": "0.0.1",
   "type": "module",
   "dependencies": {
-    "@graphorigami/origami": "0.0.25",
-    "googleapis": "114.0.0",
-    "marked": "4.3.0",
-    "sharp": "0.31.3"
+    "@weborigami/origami": "0.0.59",
+    "openai": "4.52.3"
   },
   "scripts": {
     "start": "ori @serve"
