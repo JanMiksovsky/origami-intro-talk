@@ -6,6 +6,7 @@
     "@weborigami/origami": "0.0.69"
   },
   "scripts": {
-    "start": "ori @serve"
+    "build": "ori @copy aboutUs/site.ori, @clean @files/build",
+    "start": "ori @serve @watch aboutUs, =@debug site.ori"
   }
 }
