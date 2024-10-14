@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "type": "module",
   "dependencies": {
-    "@weborigami/origami": "0.0.69"
+    "@weborigami/origami": "0.0.69",
+    "sharp": "0.33.5"
   },
   "scripts": {
     "build": "ori @copy aboutUs/site.ori, @clean @files/build",
