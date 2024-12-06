@@ -1,44 +1,33 @@
-import {
-  ExplorableGraph,
-  FilesGraph,
-  MapExtensionsGraph,
-  MapInnerKeysGraph,
-  MapValuesGraph,
-  ObjectGraph,
-  OrigamiTemplate,
-} from "@graphorigami/origami";
+import { cachedKeyFunctions, map } from "@weborigami/async-tree";
+import { OrigamiFiles } from "@weborigami/language";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import thumbnail from "./thumbnail.js";
 
-const dirname = path.dirname(fileURLToPath(import.meta.url));
-const files = new FilesGraph(dirname);
+export default async function () {
+  const parent = this;
+  const dirname = path.dirname(fileURLToPath(import.meta.url));
+  const files = new OrigamiFiles(dirname);
+  files.parent = parent;
 
-const assets = await files.get("assets");
-const images = await files.get("images");
-const indexTemplate = new OrigamiTemplate(await files.get("index.ori"));
-const personTemplate = new OrigamiTemplate(await files.get("person.ori"));
-const teamData = ExplorableGraph.fromYaml(await files.get("teamData.yaml"));
+  const assets = await files.get("assets");
+  const images = await files.get("images");
+  const indexTemplate = await (await files.get("index.ori")).unpack();
+  const personTemplate = await (await files.get("person.ori")).unpack();
+  const teamData = await (await files.get("teamData.yaml")).unpack();
 
-const title = "Our Amazing Team";
+  const indexHtml = await indexTemplate(teamData);
+  const thumbnails = map(images, thumbnail);
+  const team = map(teamData, {
+    ...cachedKeyFunctions((index) => `${teamData[index].name}.html`),
+    value: (person) => personTemplate(person),
+  });
 
-const indexHtml = indexTemplate.apply({ teamData, title });
-const thumbnails = new MapValuesGraph(images, thumbnail);
-const teamByName = new MapInnerKeysGraph(teamData, (value) =>
-  value.get("name")
-);
-const team = new MapExtensionsGraph(
-  teamByName,
-  (person) => personTemplate.apply({ person, title }),
-  {
-    extension: "->html",
-  }
-);
-
-export default new ObjectGraph({
-  assets,
-  images,
-  "index.html": indexHtml,
-  team,
-  thumbnails,
-});
+  return {
+    assets,
+    images,
+    "index.html": indexHtml,
+    team,
+    thumbnails,
+  };
+}
