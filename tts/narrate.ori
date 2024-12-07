@@ -1,0 +1,4 @@
+map(script.yaml, {
+  extension: "→.mp3"
+  value: tts.js
+})

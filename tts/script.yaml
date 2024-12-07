@@ -1,0 +1,37 @@
+- voice: shimmer
+  text: |
+    This short video introduces the basic concepts of the Origami programming
+    language, a general-purpose language with a focus on creating websites.
+- voice: echo
+  text: |
+    Origami is designed to complement HTML and CSS to do the things those
+    languages can’t do, including defining a site’s overall structure, and
+    transforming the content you create by hand into HTML and other resources that
+    you can deploy anywhere.
+- voice: shimmer
+  text: |
+    Using a language for this purpose lets you be the one directing the action —
+    nothing happens unless you ask for it. In exchange for having to learn a new
+    language, you end up with a site whose construction you can completely
+    understand.
+- voice: echo
+  text: |
+    To illustrate the basic ideas in their plainest form, let's start by writing
+    some expressions in Origami using the command-line interface called ori. If I
+    type "ori 1 plus 1", it evaluates that and displays 2. If I type "ori hello”,
+    ori displays hello. In the shell, you'll need to escape quotes or surround
+    them with extra quotes because the shell itself consumes quote marks.
+- voice: shimmer
+  text: |
+    In addition to basic numbers and strings, you can reference files.
+    Think of each file here as if it were a spreadsheet cell. Instead of the A1,
+    B2 style cell references in a spreadsheet, here we use paths and file names to
+    refer to things. Unlike most programming languages, names in Origami can
+    include characters like periods and hyphens.
+- voice: echo
+  text: |
+    Where a spreadsheet has built-in math functions, Origami has built-in functions
+    for transforming data and creating parts of sites. We can call a function that
+    transforms markdown to HTML, giving it a markdown file as input. To avoid having
+    to quote parentheses in the shell, we can omit them and Origami will figure out
+    where they would be.

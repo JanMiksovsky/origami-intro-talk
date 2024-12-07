@@ -1,0 +1,1 @@
+ori copy narrate.ori, files:narration
