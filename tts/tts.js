@@ -1,15 +1,16 @@
-import { Tree, toString } from "@weborigami/async-tree";
+import { Tree } from "@weborigami/async-tree";
 
 // Function to call the OpenAI Text-to-Speech API
-export default async function textToSpeech(options) {
+export default async function textToSpeech(dialogue) {
   let creds = await this.get("creds.json");
   if (creds.unpack) {
     creds = await creds.unpack();
   }
   const apiKey = creds.apiKey;
 
-  const { text, voice } = await Tree.plain(options);
-  const input = toString(text);
+  const data = await Tree.plain(dialogue);
+  const voice = Object.keys(data)[0];
+  const input = data[voice];
   const body = {
     input,
     model: "tts-1",
