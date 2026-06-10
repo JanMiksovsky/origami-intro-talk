@@ -1,0 +1,6 @@
+{
+  (data) = Tree.sort(content/, (post) => Date.parse(post.date)) -> Tree.reverse
+
+  index.html = indexPage.ori.html(data)
+  posts/ = Tree.map(data, postPage.ori.html)
+}

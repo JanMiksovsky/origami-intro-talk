@@ -1,5 +1,6 @@
-node_modules
-build
-creds.json
-cacheFiles
 .vscode
+build
+cacheFiles
+creds.json
+node_modules
+snapshot

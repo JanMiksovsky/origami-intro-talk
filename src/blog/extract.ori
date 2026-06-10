@@ -1,0 +1,22 @@
+// Crawl the blog site
+Dev.crawl(httpstree://abner.page)
+
+// Map the post folders to HTML pages
+-> (site) => Tree.mapExtension(site/post, {
+  // Add an HTML extension to the names
+  extension: "/->.html"
+
+  // Only handle folders that contain an index.html file
+  value: (folder) => folder/index.html
+    ? // Parse the index.html into DOM and get a query selector
+      (Origami.htmlDom(folder/index.html).querySelector
+      // Create a document and convert to a string with front matter
+      -> ($) => Origami.document(
+          $("section").innerHTML              // document body
+          {                                   // properties
+            title: $("h1").textContent
+            date: $("time").textContent
+          }
+        )).toString()
+    : undefined
+})
