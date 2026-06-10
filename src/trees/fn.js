@@ -10,11 +10,11 @@ function fn(key) {
 }
 
 export default {
-  async get(key) {
+  get(key) {
     return fn(key);
   },
 
-  async keys() {
-    return domain;
+  *keys() {
+    yield* domain;
   },
 };

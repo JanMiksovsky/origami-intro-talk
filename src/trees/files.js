@@ -1,4 +1,4 @@
-import * as fs from "node:fs/promises";
+import * as fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -6,10 +6,10 @@ const moduleFolder = path.dirname(fileURLToPath(import.meta.url));
 const dirname = path.resolve(moduleFolder, "markdown");
 
 export default {
-  async get(key) {
+  get(key) {
     const filename = path.resolve(dirname, key);
     try {
-      return await fs.readFile(filename); // Return file contents
+      return fs.readFileSync(filename); // Return file contents
     } catch (error) {
       if (error.code === "ENOENT") {
         return undefined;
@@ -18,7 +18,7 @@ export default {
     }
   },
 
-  async keys() {
-    return fs.readdir(dirname);
+  *keys() {
+    yield* fs.readdirSync(dirname);
   },
 };
