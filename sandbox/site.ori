@@ -1,6 +1,11 @@
+// The top-level structure of the site
 {
   (data) = Tree.sort(content/, (post) => Date.parse(post.date)) -> Tree.reverse
+  (feed) = feed.ori(data)
 
+  feed.json = Tree.json(feed)
+  feed.xml = Origami.rss(feed)
   index.html = indexPage.ori.html(data)
   posts/ = Tree.map(data, postPage.ori.html)
+  videos/
 }
