@@ -7,11 +7,11 @@
   index.html = index.ori(teamData.yaml)
 
   // Each team member has their own page in the team area
-  team/ = @map(teamData.yaml, {
-    key: (person) => `${ person/name }.html`
+  team/ = Tree.map(teamData.yaml, {
+    key: (person) => `${ person.name }.html`
     value: person.ori
   })
 
   // Thumbnails are generated for each image
-  thumbnails/ = @map(images, =@image/resize(_, { width: 200 }))
+  thumbnails/ = Tree.map(images, (image) => Origami.image.resize(image, { width: 200 }))
 }
