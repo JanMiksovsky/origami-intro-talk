@@ -6,5 +6,5 @@ greetings = {
     "Carol.md": "Hello, **Carol**!",
 }
 
-for key, value in greetings.items():
-    print(f"{key}: {value}")
+for key in greetings:
+    print(f"{key}: {greetings[key]}")

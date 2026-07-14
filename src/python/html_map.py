@@ -1,11 +1,11 @@
 #!/Users/jan/Source/Origami/origami-intro-talk/.venv/bin/python3
 
-import markdown
 import sys
+from collections.abc import Mapping
 from pathlib import Path
-from typing import Mapping
 
-from md_map import GreetingsMap
+import markdown
+from folder_map import FolderMap
 
 
 def html_map(markdownMap: Mapping):
@@ -31,6 +31,6 @@ def html_map(markdownMap: Mapping):
     return HtmlMap()
 
 
-m = html_map(GreetingsMap())
+m = html_map(FolderMap("greetings"))
 for key in m:
     print(f"{key}: {m[key]}")
