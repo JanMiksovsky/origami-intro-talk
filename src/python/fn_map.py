@@ -18,6 +18,6 @@ class GreetingsMap(Mapping):
 
 
 if __name__ == "__main__":
-    m = GreetingsMap()
-    for key in m:
-        print(f"{key}: {m[key]}")
+    map = GreetingsMap()
+    for key in map:
+        print(f"{key}: {map[key]}")

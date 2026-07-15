@@ -19,6 +19,6 @@ class FolderMap(Mapping):
 
 
 if __name__ == "__main__":
-    m = FolderMap("greetings")
-    for key in m:
-        print(f"{key}: {m[key]}")
+    map = FolderMap("greetings")
+    for key in map:
+        print(f"{key}: {map[key]}")
