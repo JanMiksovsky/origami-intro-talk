@@ -15,18 +15,11 @@ def html_map(markdownMap: Mapping):
     """
     class HtmlMap(Mapping):
         def __getitem__(self, html_key):
-            # Convert .html extension to .md
-            md_key = f"{html_key[:-5]}.md"
-            # Get markdown and convert to HTML
-            md_value = markdownMap[md_key]
-            html_value = markdown.markdown(md_value)
-            return html_value
+            return markdown.markdown(markdownMap[Path(html_key).with_suffix(".md")])
 
         def __iter__(self):
-            # Convert .md extensions to .html
             for md_key in markdownMap:
-                html_key = f"{md_key[:-3]}.html"
-                yield html_key
+                yield f"{md_key[:-3]}.html"
 
         def __len__(self):
             return len(markdownMap)
