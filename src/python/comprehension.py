@@ -9,8 +9,8 @@ from folder_map import FolderMap
 
 md_map = FolderMap("greetings")
 
-html_map = {Path(md_key).with_suffix(".html"): markdown.markdown(
-    md_value) for md_key, md_value in md_map.items()}
+html_map = {Path(key).with_suffix(".html"): markdown.markdown(
+    value) for key, value in md_map.items()}
 
 for key in html_map:
     print(f"{key}: {html_map[key]}")
